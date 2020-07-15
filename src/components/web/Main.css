@@ -1,0 +1,674 @@
+.Lista ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.lista li{
+  display: flex;
+  list-style-type: none;
+}
+
+.number {
+  color: white;
+}
+
+.infoheader {
+  padding-top: 10px;
+  padding: 20px;
+}
+
+.menu {
+  color: white;
+  box-shadow: 0px 11px 14px -10px rgba(0, 0, 0, 0.75);
+  z-index: 6;
+  height: 80px;
+}
+.menuresponsive {
+text-align:left;
+  color: white;
+  font-weight: 700;
+}
+.cajalogo {
+  color: white;
+ 
+}
+
+.logoeasy {
+ 
+  top: 1px;
+  height: 70px;
+}
+
+.top {
+  margin-top: 130px;
+}
+
+.iconomenuresponsive {
+  margin-top: 11px;
+  margin-left: 20px;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  display: none;
+}
+.calculadora {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 70px;
+  align-content:center;
+}
+
+.modelocalculadora img {
+  margin-left: -50px;
+  width: 100%
+}
+
+.botonesRegistro {
+  margin: 0 auto;
+}
+
+.requisitos {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
+}
+.logo1 {
+  position: absolute;
+  top: -1px;
+  width: 200px;
+  float: left;
+}
+
+.pasos {
+  height: 600px;
+  display: flex;
+}
+
+.contenedorrequisitos {
+  background: #ffdf00;
+  margin-top: -35px;
+  font-weight: 600;
+  margin-left: 4px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  height: 600px;
+}
+.contenedorrequisitos1 {
+  background: #ffdf00;
+ flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+ 
+}
+
+.cajarequisitos {
+  padding-top: 30px;
+  margin-top: 95px;
+  margin-bottom: 50px;
+}
+.cajarequisitos1 {
+  padding-top: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.requisitos1 {
+  display: flex;
+  flex-direction: row;
+ 
+  justify-content: center;
+  background-color: #ffdf00;
+}
+.cajarequisitos h2 {
+  font-family: raleway;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+}
+.requisitoscaja {
+  width: 400px;
+  height: 200px;
+  margin: 12px;
+  padding: 55px;
+  text-align: center;
+  background: white;
+  border-radius: 24px;
+}
+
+.requisitotexto {
+  font-family: raleway;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: 9px;
+}
+
+.requisitoscaja:hover {
+  box-shadow: -2px 1px 11px 0px;
+}
+.contenedorpasos {
+  background: white;
+  margin-top: auto;
+ 
+}
+
+.cajapasos {
+  margin: 0 auto;
+}
+
+.cajapasos h1 {
+  font-family: raleway;
+  font-weight: 900;
+  text-align: center;
+  color: #7e7e7e;
+  font-size: 40px;
+  text-decoration: none;
+  outline: 0;
+  margin: 0 auto;
+  list-style-type: none;
+  padding-top: 40px;
+}
+.datos1 {
+  font-weight: 900;
+  text-align: center;
+  font-size: 40px;
+  text-decoration: none;
+  outline: 0;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.contenidopasos {
+  color: white;
+  padding-top: 2px;
+  font-size: 22px;
+  width: 250px;
+  height: 100px;
+  background: #ffdf00;
+  margin-top: 30px;
+  margin-right: 40px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  
+
+}
+
+.contenidopasos p {
+  margin-top: -35px;
+  font-weight: 600;
+  margin-left: 4px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+
+}
+.circlecontenidopasos1 {
+  border-radius: 100%;
+  background: #4382ce;
+  width: 50px;
+  height: 50px;
+  margin-left: -27px;
+  color: white;
+  text-align: center;
+  font-family: raleway;
+  text-decoration: none;
+  outline: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 15px;
+  
+ 
+}
+.circlecontenidopasos1 h6 {
+  text-align: center;
+  font-family: raleway;
+  font-size: 35px;
+  color: white;
+
+
+}
+
+
+
+.elegirnoscaja h1 {
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  font-size: 40px;
+}
+
+.contenedor_porqueelegirnos {
+  display: flex;
+  flex-direction: column;
+  background: #3973b8;
+  height: 500px;
+}
+.root{
+  
+  margin: 20px  0;
+  text-align: left;
+  color: #f9f9f9;
+  font-weight: 700;
+  background-color: #3973b8;
+  font-size: 6;
+}
+.root2{
+  
+  text-align: left;
+  color: #3973b8;
+  font-weight:bold;
+  background-color: white;
+  flex-direction:column;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  align-items: center;
+
+ 
+}
+.tituloroot{
+  background-color:#ffdf00 ;
+  
+}
+.titulo-porque-elegirnosroot{
+  
+  text-align:center;
+  color: #f9f9f9;
+  background-color: #3973b8;
+  font-size: 6;
+  align-content: center;
+}
+
+.titulo-porque-elegirnos{
+  margin: 20px  0;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  
+}
+.titulo-porque-elegirnoscard {
+  margin: 20px  0;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 10;
+  align-content: center;
+}
+.titulo-8pasospararoot{
+  
+  text-align: left;
+  color: #ffdf00;
+
+  
+  
+}
+.contenedor_InformacióndeContacto {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height:400px;
+  
+}
+
+.tituloporque h2{
+  color:#3973b8;
+  text-align:  center;
+
+  height:100px;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+
+
+
+.titulo_InformacióndeContacto{
+  margin: 40px  0;
+  text-align:left;
+  color: #3973b8;
+  font-weight: 900;
+  margin-left: 70px;
+}
+.titulo_InformacióndeContacto2{
+  margin: 20px  0;
+  text-align:right;
+  background: red;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.titulo_InformacióndeContacto3{
+  margin: 20px  0;
+  text-align:right;
+  font-weight: 900;
+  display: flex;
+  margin-left: 40px;
+  background: white;
+  height: 250px;
+
+  
+}
+.opciones {
+  width: 100%;
+}
+
+.cambioa{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: #ffdf00;
+  text-decoration: none;
+}
+
+
+
+.opcion-item {
+  width: 300px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.opcion-item  h1{
+ 
+  font-size: 20px;
+  color: white;
+  text-align: left !important;
+}
+
+.opcion-item p {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #ffdf00;
+  height: 30px;
+  width: 600px;
+  border-radius: 20px;
+  justify-content: space-between;
+  display: flex;
+  padding-left: 30px;
+  box-shadow: -2px 1px 11px 0px;
+}
+
+
+.porcentaje {
+  font-weight: 800;
+  margin-left: 404px;
+  margin-top: 3px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 73px;
+ 
+}
+
+.circlecontenidopasos1:hover {
+  cursor: pointer;
+  box-shadow: -2px 1px 11px 0px;
+}
+.quienessomos {
+  background: #f9f9f9;
+  height: 660px !important;
+  margin-bottom: 75px;
+  
+}
+.fon {
+  margin-top: 100px;
+}
+.contenedorcarrusel {
+  width: 100%;
+  margin-top: 100px;
+  
+}
+.cajacontenedorcontactoabajo {
+  float: left;
+}
+.cajacontenedorcontactoabajo h1 {
+  color: #4382ce;
+  font-family: raleway;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.espacioformcontacto {
+  height: 10px;
+}
+.tituloinformacioncontacto {
+  color: #3973b8;
+}
+
+.contactoabajo {
+  width: 70%;
+  margin: 0 auto;
+  height: 400px;
+  background: white;
+  padding-top: 60px;
+}
+.facebook {
+  width: 50px;
+  height: 30px;
+  justify-content: space-around;
+}
+.instagram {
+  width: 50px;
+  height: 30px;
+
+  margin-left: -47px;
+
+  justify-content: space-around;
+}
+
+.instagram:hover {
+  border-radius: 100px;
+}
+.prueba {
+  font-size: 20px;
+  margin: 0 auto;
+  color: black;
+  justify-content: space-around;
+}
+.iconoface {
+  color: #ffdf00;
+  padding-top: 0px;
+}
+
+.iconoface:hover {
+  color: white;
+}
+.facebook:hover {
+  border-radius: 100px;
+  cursor: pointer;
+}
+.direccion1 {
+  width: 30px;
+  height: 30px;
+  background-color: #ffdf00;
+}
+.iconoadress {
+  color: #ffdf00;
+  padding-top: 10px;
+  font-family: "Font Awesome 5 Free";
+}
+.iconoadress:hover {
+  color: white;
+}
+.direccion1:hover {
+  border-radius: 100px;
+  cursor: pointer;
+}
+.contenedorfooter {
+  text-align: center;
+  padding-top: 20px;
+}
+.footer {
+  background: #3973b8;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+}
+
+.headerFirstLine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.headerSecondLine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.headerFirstLineLI {
+  
+  list-style: none;
+ margin-left: -20px;
+ margin-top: 18px;
+ flex-wrap: wrap;
+}
+
+.headerIcon {
+  margin-right: 20px;
+
+}
+
+.logofooter {
+  position: absolute;
+  top: -1px;
+  float: left;
+}
+.textoeasyfooter {
+  font-family: raleway;
+  color: white;
+  font-size: 15px;
+  text-align: justify;
+  padding-top: 18px;
+}
+.tittlefollowfooter {
+  font-family: raleway;
+  float: left;
+  color: white;
+  font-weight: 800;
+}
+.cajasocialmediafooter {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.infocontactofooter {
+  color: white;
+  font-family: raleway;
+  font-weight: 800;
+  font-size: 25px;
+  
+  float: left;
+  
+}
+.direccionfooter {
+  float: left;
+  list-style-type: none !important;
+
+}
+.adressfooter {
+  color: white;
+  margin-left: 20px;
+}
+.footerbottom {
+  background: #ffdf00;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+.footerbotton h6 {
+  text-align: center;
+  color: #7e7e7e;
+  font-family: raleway;
+  font-weight: 800;
+  padding-top: 5px;
+  font-size: 10px;
+}
+.modeloquienessomos {
+  float: left;
+  z-index: 1;
+}
+.imgmodeloquienessomos {
+  height: 650px;
+  
+}
+.quienesomostexto {
+  float: right;
+  z-index: 1;
+}
+.quienesomostexto h6 {
+  color: #3973b8;
+  font-size: 45px;
+  font-family: raleway;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 6px;
+}
+.cajaquienesson {
+  text-align: justify;
+  font-size: 15px;
+  padding: 42px;
+  font-family: raleway;
+  margin-bottom: 150px;
+  flex-wrap:wrap;
+  
+  
+}
+.cajaquienesson p {
+  font-size: 18px;
+}
+.cajaquienesson h6 {
+  color: #3973b8;
+  font-size: 35px;
+  font-family: raleway;
+  font-weight: 900;
+}
+
+.p {
+  margin-top: 7px;
+  font-weight: 600;
+  margin-left: 43px;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+  background-color: white;
+}
+
+.icono {
+  color: #3973b8;
+}
+.iconoamarillo {
+  color: #ffdf00;
+}
+.contenedorrequisitos1 {
+  background: #4382ce;
+}
+li {
+  list-style-type: none;
+}

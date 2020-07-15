@@ -1,0 +1,104 @@
+/*Botón Menú*/
+.checkbtn{
+	font-size: 30px;
+	color: white;
+	line-height: 80px;
+	cursor: pointer;
+}
+@media screen and (max-width: 1600px) and (min-width: 1300px){
+	body{
+		overflow-x: hidden;
+	}
+}
+@media screen and (max-width: 1100px) and (min-width: 378px){
+	.modelocalculadora{
+		display: none;
+	}	
+	#calculadora{
+		columns: 1;
+		width: 100%;
+	}
+}
+@media screen and (max-width: 915px) and (min-width: 378px){
+	.requisitos{
+		display: flex;
+		flex-direction: column;
+		height: 500px;
+	}
+	.contenedorrequisitos{
+		height: 974px;
+		text-align: center;
+	}
+	.requisitoscaja{
+		width: 430px;
+		margin: 7px auto;
+	}
+	.contenedorpasos{
+		height: 750px;
+	}
+}
+@media screen and (max-width: 606px) and (min-width: 378px){
+	.contenedorpasos{
+			height: 1200px;
+	}
+}
+@media screen and (max-width: 1375px) and (min-width: 987px){
+	.quienessomos{
+		display: flex;
+		flex-direction: column;
+		height: 1700px;
+	}
+	.quienesomostexto{
+		margin-top: -126px;
+	}
+}
+@media screen and (max-width: 986px) and (min-width: 772px){
+	.quienessomos{
+		height: 1500px;
+	}
+}
+@media screen and (max-width: 771px) and (min-width: 378px){
+	.quienessomos{
+		height: 1700px;
+	}
+	.contactoabajo{
+		height: 573px;
+	}
+	.elegirnoscaja{
+		height: 680px;
+	}
+	.ssl{
+		height: 101px;
+	}
+	.footer{
+		height: 376px;
+	}
+	.porquelegirnosizquierda{
+		padding-left: 0px;
+	}
+	.porquelegirnosderecha{
+		padding-left: 0px;
+	}
+	.barraporquelegirnos{
+		width: 383px;
+	}
+	.porcentaje{
+		margin-left: 320px;
+	}
+	.cantidadsolicitadancho{
+			/*width: 100%;*/
+		}
+	.plataformawebancho{
+			/*width: 116%;*/
+	}
+	.botonregistrate{
+			width: 150px;
+	}
+	.menudash{
+		display: none;
+	}
+	.iconomenuresponsive{
+		display: block;
+	}
+	
+}
