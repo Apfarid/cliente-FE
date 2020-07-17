@@ -5,17 +5,26 @@ import EditIcon from "@material-ui/icons/Edit";
 import Typography from "@material-ui/core/Typography";
 import { Card, CardContent } from "@material-ui/core";
 import clienteAxios from "../../config/axios";
-
+import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    marginLeft: 45,
+    marginBottom:100,
+    marginTop:25,
+    marginLeft:45,
+    fontSize:15,
+    fontFamily:"raleway",
+    fontWeight:900,
+   
   },
 
   card: {
-    width: "95% !important",
+    width: "100% !important",
+    backgroundColor: "#ffdf00",
+    
   },
+
 }));
 
 export default function SimplePaper() {
@@ -39,7 +48,8 @@ export default function SimplePaper() {
 
   return (
     <div className={classes.root}>
-      <Card elevation={3} className={classes.card}>
+      <Grid item xs={12} >
+      <Card  elevation={3} className={classes.card}>
         <CardContent>
           <Typography variant="h5" component="h2" className={classes.title}>
             Información
@@ -52,16 +62,17 @@ export default function SimplePaper() {
             Indentification: {usuario.cedula}
           </Typography>
           <Typography variant="p" component="p" className={classes.title}>
-            Celular {usuario.celular}
+            Celular: {usuario.celular}
           </Typography>
           <Typography variant="p" component="p" className={classes.title}>
-            Contraseña
+            Contraseña:
           </Typography>
           <Typography variant="p" component="p" className={classes.title}>
-            Teléfono
+            Teléfono:
           </Typography>
         </CardContent>
       </Card>
+      </Grid>
     </div>
   );
 }

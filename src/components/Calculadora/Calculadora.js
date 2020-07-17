@@ -170,7 +170,7 @@ const Calculadora = (props) => {
                   defaultValue={120000}
                   min={120000}
                   valueLabelDisplay="on"
-                  max={750000}
+                  max={350000}
                   onChange={handlechangeSliderValor}
                   step={10000}
                   className={classes.slide}

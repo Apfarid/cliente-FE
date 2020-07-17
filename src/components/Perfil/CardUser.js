@@ -20,6 +20,10 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
     textAlign: "center",
+    fontSize:15,
+    fontFamily:"raleway",
+    fontWeight:900,
+    
   },
   bullet: {
     display: "inline-block",
@@ -130,7 +134,7 @@ export default function CardUser() {
   }, []);
 
   return (
-    <Grid item xs={2}>
+    <Grid item xs={12}>
       <Card className={classes.root} elevation={3}>
         <CardContent>
           <div className={classes.contenedorAvatar}>

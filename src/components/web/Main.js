@@ -106,8 +106,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   drawerHeaders: {
-    backgroundColor: "#4382ce",
-    width: 200,
+    backgroundColor: "#0074bc",
+    width: 250,
+    
   },
 }));
 
@@ -261,37 +262,41 @@ export default function PersistentDrawerRight() {
           </Grid>
 
           <Hidden only={["lg", "xl", "md"]}>
+          <Grid item xs={12}>
             <Card>
-              <CardContent>
-                <Typography className="tituloporque">
+              <CardContent className="cajapasos h1" >
+                
+                <Typography className="tituloporque2">
                   <h2>Requisitos para obtener un crédito</h2>
-                  <div className="requisitoscaja">
+                  
+                    <p className="requisitotexto1">
                     <PeopleAltSharpIcon className="icono" fontSize="large" />
-                    <p className="requisitotexto">
                       Ser mayor de edad colombiano residente
                     </p>
-                  </div>
-                  <div className="requisitoscaja">
+                 
+                  
+                    <p className="requisitotexto1">
                     <CreditCardSharpIcon className="icono" fontSize="large" />
-                    <p className="requisitotexto">
                       Tener cuenta bancaria a tu nombre
                     </p>
-                  </div>
-                  <div className="requisitoscaja">
+                  
+                  
+                    <p className="requisitotexto1">
                     <DraftsSharpIcon className="icono" fontSize="large" />
-                    <p className="requisitotexto">Tener correo propio</p>
-                  </div>
-                  <div className="requisitoscaja">
+                      Tener correo propio</p>
+                  
+                    <p className="requisitotexto1">
                     <PhoneIphoneSharpIcon className="icono" fontSize="large" />
-                    <p className="requisitotexto">
                       Tener línea de celular propia
                     </p>
-                  </div>
+                    
                 </Typography>
+                
               </CardContent>
             </Card>
+            </Grid>
           </Hidden>
-
+         
           <Hidden only={["xs", "sm"]}>
             <Grid container className="contenedorrequisitos">
               <Grid item xs={12}>
@@ -1093,10 +1098,20 @@ export default function PersistentDrawerRight() {
             <br />
             <br />
             <li>
+            
+             <a className="cambioa" href="/iniciar-sesion"
+                        component={Link}
+                        to="/iniciar-sesion"
+                        variant="contained"
+                        color="primary"
+                        disableRipple
+                      >
               <PeopleAltSharpIcon className="iconoamarillo" fontSize="large" />
-              <a className="cambioa" href="/iniciar-sesion">
-                Iniciar Sesión
-              </a>
+                        Iniciar Sesión
+                      </a>
+             
+
+              
             </li>
           </List>
         </Grid>

@@ -184,7 +184,7 @@ const SolicitudDocumentos = ({ credito, history }) => {
                 color="primary"
                 size="large"
                 className={classes.button}
-                endIcon={<Icon>send</Icon>}
+                endIcon={<Icon>Send</Icon>}
               >
                 Enviar
               </Button>
@@ -198,6 +198,17 @@ const SolicitudDocumentos = ({ credito, history }) => {
                 onClick={cancelarSolicitud}
               >
                 Abandonar
+              </Button>
+
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                startIcon={<DeleteIcon />}
+                onClick={cancelarSolicitud}
+              >
+                Limpiar
               </Button>
             </div>
           </div>

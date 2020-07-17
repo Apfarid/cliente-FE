@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const clienteAxios = axios.create({
-    baseURL: process.env.REACT_APP_BACKEND
+    baseURL: 'https://cryptic-lake-31823.herokuapp.com/'
 })
 
 export default clienteAxios

@@ -100,7 +100,7 @@ const Preaprobado = (props) => {
           Tu credito se encuentra en proceso de desembolso:
         </h2>
         <h3 className={classes.texto}>
-          Recuerda que si la firma del contrato se realizo despues de las 14:00, tu dinera se 
+          Recuerda que si la firma del contrato se realizo despues de las 16:00, tu dinero se 
           vera reflejado al seguiente día.
         </h3>
       </Grid>

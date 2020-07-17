@@ -145,8 +145,30 @@ text-align:left;
   font-size: 20px;
   line-height: 20px;
   margin-top: 9px;
+  
+} 
+.requisitotexto1 {
+  font-family: raleway;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: 9px;
+  
+  
 }
-
+.tituloporque2 h2 {
+  margin-right: 50px;
+  text-align: center;
+  font-weight: 900;
+  color: #ffdf00;
+}
+.tituloporque3 h2{
+  color:#3973b8;
+  background-color: #ffdf00;
+  height:100px;
+  font-weight: 900;
+  font-size: 20px;
+  justify-content: center;
+}
 .requisitoscaja:hover {
   box-shadow: -2px 1px 11px 0px;
 }
@@ -315,8 +337,7 @@ text-align:left;
 
 .tituloporque h2{
   color:#3973b8;
-  text-align:  center;
-
+  background-color: #ffdf00;
   height:100px;
   font-weight: 900;
   font-size: 40px;
@@ -628,7 +649,7 @@ a:hover{
   margin-top: 6px;
 }
 .cajaquienesson {
-  text-align: justify;
+  text-align: center;
   font-size: 15px;
   padding: 42px;
   font-family: raleway;

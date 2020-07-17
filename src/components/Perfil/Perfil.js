@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { PerfilStyles } from "./PerfilStyles";
 import MigaPan from "../MigaPan/MigaPan";
 
+import Hidden from "@material-ui/core/Hidden";
+
 const Perfil = () => {
   const classes = PerfilStyles();
   const datosVista = {
@@ -15,16 +17,16 @@ const Perfil = () => {
 
   return (
     <Grid container className={classes.contenedor}>
-      <Grid item xs={3}>
+      <Grid item xs={12} sm={6}>
         <CardUser />
       </Grid>
 
-      <Grid item xs={9}>
-        <Grid item xs={12}>
+        <Grid item xs={12}sm={6}>
           <CardInfo />
         </Grid>
-
-        <Grid item xs={12}>
+        <Hidden only={["xs", "sm"]}>
+      <Grid item xs={12} sm={12}>
+        <Grid item xs={6} sm={12}>
           <Typography variant="h5" component="h2" className={classes.title}>
             Histórico Créditos
           </Typography>
@@ -32,6 +34,7 @@ const Perfil = () => {
           <HistoricoDeudor />
         </Grid>
       </Grid>
+      </Hidden>
     </Grid>
   );
 };
