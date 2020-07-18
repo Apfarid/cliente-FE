@@ -66,22 +66,23 @@ const FormularioInformacionPersonal = ({
 
   const [error, setError] = useState(false);
 
-
-
-  const [infoPersonal, setinfoPersonal] = useState( (localStorage.getItem("infoPersonal") === null) ? ({
-    tipoId: "",
-    cedula: "",
-    expedicionId: new Date(),
-    nombres: "",
-    apellidos: "",
-    ciudad: "",
-    barrio: "",
-    estrato: "",
-    tipoVivienda: "",
-    nivelEstudio: "",
-    genero: "",
-    celular: "",
-  }) : JSON.parse(localStorage.getItem('infoPersonal'))
+  const [infoPersonal, setinfoPersonal] = useState(
+    localStorage.getItem("infoPersonal") === null
+      ? {
+          tipoId: "",
+          cedula: "",
+          expedicionId: new Date(),
+          nombres: "",
+          apellidos: "",
+          ciudad: "",
+          barrio: "",
+          estrato: "",
+          tipoVivienda: "",
+          nivelEstudio: "",
+          genero: "",
+          celular: "",
+        }
+      : JSON.parse(localStorage.getItem("infoPersonal"))
   );
 
   const [touchInfoPersonal, setTouchInfoPersonal] = useState({
@@ -189,7 +190,7 @@ const FormularioInformacionPersonal = ({
     }
 
     setError(false);
-    localStorage.setItem("infoPersonal", JSON.stringify(infoPersonal))
+    localStorage.setItem("infoPersonal", JSON.stringify(infoPersonal));
     registroInfoPersonal(infoPersonal);
     handleNext();
   };
@@ -442,10 +443,10 @@ const FormularioInformacionPersonal = ({
           <Grid item xs={12} sm={12} md={6}>
             <TextField
               required
-              id="celular"
               name="celular"
               label="Celular"
               fullWidth
+              type="number"
               value={infoPersonal.celular}
               onChange={handleChange}
               onBlur={handleBlur}

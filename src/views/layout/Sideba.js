@@ -27,6 +27,7 @@ import { Link as Llink, withRouter } from "react-router-dom";
 import ReplayIcon from "@material-ui/icons/Replay";
 import PaymentIcon from "@material-ui/icons/Payment";
 import HomeIcon from "@material-ui/icons/Home";
+import { consultaInfoUsuario } from "../../actions/usuarioAction";
 
 import clienteAxios from "../../config/axios";
 
@@ -162,6 +163,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Sidebar = ({ children, history }) => {
+  const usuarioDispatch = useDispatch();
   const [credito, setCredito] = useState([]);
   const [nombreUser, setNombreUser] = useState("");
 
@@ -181,6 +183,10 @@ const Sidebar = ({ children, history }) => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const InfoUsuario = useSelector((state) => state.Usuario);
+
+  console.log(InfoUsuario);
 
   const cerrarSesion = () => {
     setAnchorEl(null);
@@ -213,8 +219,10 @@ const Sidebar = ({ children, history }) => {
   };
 
   useEffect(() => {
+    const solicitarInfoUsuario = () => usuarioDispatch(consultaInfoUsuario());
     opcionesCliente();
     nombrePerfil();
+    solicitarInfoUsuario();
   }, []);
 
   let contrato = credito?.aprobado === true || credito?.desembolsado === true;
@@ -272,7 +280,9 @@ const Sidebar = ({ children, history }) => {
           </Typography>
           <div className={classes.items}>
             <Hidden only={["xs", "sm"]}>
-              <span className={classes.saludo}>Hola! {nombre}</span>
+              <span className={classes.saludo}>
+                Hola! {InfoUsuario?.usuario?.nombres}
+              </span>
             </Hidden>
             <IconButton
               aria-label="delete"

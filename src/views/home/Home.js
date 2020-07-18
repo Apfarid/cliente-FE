@@ -46,7 +46,7 @@ const consultarCensados = async () => {
     },
   });
 
-  localStorage.setItem("censo", respuesta.data.censado);
+  localStorage.setItem("censo", respuesta?.data?.censado);
 };
 
 export default function Home() {

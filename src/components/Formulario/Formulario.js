@@ -15,7 +15,7 @@ import FormularioInformacionLaboral from "./FormularioInformacionLaboral";
 import FormularioInformacionReferencia from "./FormularioInformacionReferencia";
 import FormularioFinal from "./FormularioFinal";
 import { withRouter } from "react-router-dom";
-import { informacionPersonal } from "../../actions/authAction";
+import { crearUsuario } from "../../actions/usuarioAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const steps = ["Personal", "Financiera", "Laboral", "Referencias", ""];
@@ -48,7 +48,7 @@ const Formulario = (props) => {
     setCliente({
       ...cliente,
       infomacionReferencias,
-      censado: 'si',
+      censado: "si",
     });
   };
 
@@ -58,17 +58,17 @@ const Formulario = (props) => {
 
   const dispatch = useDispatch();
 
-  const crearInformacion = (infoCliente) =>  dispatch(informacionPersonal(infoCliente));
+  const crearInformacion = (infoCliente) => dispatch(crearUsuario(infoCliente));
 
   const enviar = () => {
-    localStorage.removeItem("infoPersonal");
+    /*     localStorage.removeItem("infoPersonal");
     localStorage.removeItem("infoFinanciera");
     localStorage.removeItem("infoDesempleado");
     localStorage.removeItem("infoReferencias");
-    localStorage.removeItem("infoIndependiente");
+    localStorage.removeItem("infoIndependiente"); */
     let datos = cliente;
-    crearInformacion(datos)
-    props.history.push("/solicitud-credito");
+    crearInformacion(datos);
+    props.history.push("/inicio");
   };
 
   function getStepContent(step) {
@@ -155,7 +155,7 @@ const Formulario = (props) => {
             ))}
           </Stepper>
           <React.Fragment>
-            {activeStep !== steps.length &&  (
+            {activeStep !== steps.length && (
               <React.Fragment>{getStepContent(activeStep)}</React.Fragment>
             )}
           </React.Fragment>

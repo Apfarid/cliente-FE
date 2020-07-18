@@ -1,8 +1,9 @@
-import {combineReducers} from 'redux'
-import authReducer from './authReducer'
-import gestionCreditoReducer from './gestionCreditoReducer'
+import { combineReducers } from "redux";
+import authReducer from "./authReducer";
+import gestionCreditoReducer from "./gestionCreditoReducer";
+import usuarioReducer from "./usuarioReducer";
 
 export default combineReducers({
-    usuario: authReducer,
-    gestionCreditos: gestionCreditoReducer
-})
+  Usuario: usuarioReducer,
+  gestionCreditos: gestionCreditoReducer,
+});

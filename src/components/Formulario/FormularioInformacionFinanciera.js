@@ -21,7 +21,7 @@ import {
 
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import Alertas from './../Alertas'
+import Alertas from "./../Alertas";
 
 import FormLabel from "@material-ui/core/FormLabel";
 
@@ -29,18 +29,21 @@ export default function FormularioInformacionFinanciera({
   setActiveStep,
   activeStep,
   steps,
-  registroInfoFinanciera
+  registroInfoFinanciera,
 }) {
-  const [infoFinanciera, setInfoFinanciera] = useState((localStorage.getItem("infoFinanciera") === null) ? ({
-    banco: "",
-    numeroCuenta: "",
-    tipoCuenta: "",
-    preguntaTC: "",
-    ingresosMensuales: "",
-  }) : JSON.parse(localStorage.getItem('infoFinanciera')));
+  const [infoFinanciera, setInfoFinanciera] = useState(
+    localStorage.getItem("infoFinanciera") === null
+      ? {
+          banco: "",
+          numeroCuenta: "",
+          tipoCuenta: "",
+          preguntaTC: "",
+          ingresosMensuales: "",
+        }
+      : JSON.parse(localStorage.getItem("infoFinanciera"))
+  );
 
   const [error, setError] = useState();
-  
 
   const [touchInfoFinanciera, setTouchInfoFinanciera] = useState({
     banco: "",
@@ -127,7 +130,7 @@ export default function FormularioInformacionFinanciera({
       return;
     }
     setError(false);
-    localStorage.setItem("infoFinanciera", JSON.stringify(infoFinanciera))
+    localStorage.setItem("infoFinanciera", JSON.stringify(infoFinanciera));
     registroInfoFinanciera(infoFinanciera);
     handleNext();
   };
@@ -137,7 +140,7 @@ export default function FormularioInformacionFinanciera({
       <Typography variant="h6" gutterBottom>
         Información Financiera
       </Typography>
-      {error && <Alertas mensaje = "Todos los campos deben ser diligenciados"/> }
+      {error && <Alertas mensaje="Todos los campos deben ser diligenciados" />}
       <form>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -154,32 +157,46 @@ export default function FormularioInformacionFinanciera({
                 onBlur={handleBlur}
                 onChange={handleChange}
               >
-                 <option aria-label="None" value="" />
+                <option aria-label="None" value="" />
                 <option value={"BANCO AGRARIO"}>BANCO AGRARIO</option>
                 <option value={"BANCO AV VILLAS"}>BANCO AV VILLAS</option>
-                <option value={"BANCO BBVA COLOMBIA S.A"}>BANCO BBVA COLOMBIA S.A</option>
+                <option value={"BANCO BBVA COLOMBIA S.A"}>
+                  BANCO BBVA COLOMBIA S.A
+                </option>
                 <option value={"BANCO CAJA SOCIAL"}>BANCO CAJA SOCIAL</option>
-                <option value={"BANCO COOPERATIVO COOPCENTRAL"}>BANCO COOPERATIVO COOPCENTRAL</option>
+                <option value={"BANCO COOPERATIVO COOPCENTRAL"}>
+                  BANCO COOPERATIVO COOPCENTRAL
+                </option>
                 <option value={"BANCO DAVIVIENDA"}>BANCO DAVIVIENDA</option>
                 <option value={"BANCO DE BOGOTÁ"}>BANCO DE BOGOTÁ</option>
                 <option value={"BANCO DE OCCIDENTE"}>BANCO DE OCCIDENTE</option>
                 <option value={"BANCO DE FALABELLA"}>BANCO DE FALABELLA</option>
-                <option value={"BANCO DE GNB SUDAMERIS"}>BANCO DE GNB SUDAMERIS</option>
+                <option value={"BANCO DE GNB SUDAMERIS"}>
+                  BANCO DE GNB SUDAMERIS
+                </option>
                 <option value={"BANCO ITAU"}>BANCO ITAU</option>
                 <option value={"BANCO PICHINHA S.A"}>BANCO PICHINHA S.A</option>
                 <option value={"BANCO POPULAR"}>BANCO POPULAR</option>
                 <option value={"BANCO PROCREDIT"}>BANCO PROCREDIT</option>
-                <option value={"BANCO SANTANDER COLOMBIA"}>BANCO SANTANDER COLOMBIA</option>
+                <option value={"BANCO SANTANDER COLOMBIA"}>
+                  BANCO SANTANDER COLOMBIA
+                </option>
                 <option value={"BANCO SERFINANZA"}>BANCO SERFINANZA</option>
                 <option value={"BANCOLOMBIA"}>BANCOLOMBIA</option>
                 <option value={"BANCOOMEVA S.A"}>BANCOOMEVA S.A</option>
-                <option value={"CFA COOPERATIVA FINANCIERA"}>CFA COOPERATIVA FINANCIERA</option>
+                <option value={"CFA COOPERATIVA FINANCIERA"}>
+                  CFA COOPERATIVA FINANCIERA
+                </option>
                 <option value={"CITIBANK"}>CITIBANK</option>
-                <option value={"CONFIAR COOPERATIVA FINANCIERA"}>CONFIAR COOPERATIVA FINANCIERA</option>
+                <option value={"CONFIAR COOPERATIVA FINANCIERA"}>
+                  CONFIAR COOPERATIVA FINANCIERA
+                </option>
                 <option value={"DAVIPLATA"}>DAVIPLATA</option>
                 <option value={"nNEQUI"}>NEQUI</option>
                 <option value={"RAPPIPAY"}>RAPPIPAY</option>
-                <option value={"SCOTIABANK COLPATRIA"}>SCOTIABANK COLPATRIA</option>
+                <option value={"SCOTIABANK COLPATRIA"}>
+                  SCOTIABANK COLPATRIA
+                </option>
               </Select>
               <FormHelperText>{displayError("banco", "Banco")}</FormHelperText>
             </FormControl>
@@ -217,8 +234,8 @@ export default function FormularioInformacionFinanciera({
                 onBlur={handleBlur}
               >
                 <option aria-label="None" value="" />
-                <option value={"si"}>Corriente</option>
-                <option value={"no"}>Ahorros</option>
+                <option value={"corriente"}>Corriente</option>
+                <option value={"ahorros"}>Ahorros</option>
               </Select>
               <FormHelperText>
                 {displayError("tipoCuenta", "Tipo de Cuenta")}
@@ -279,7 +296,6 @@ export default function FormularioInformacionFinanciera({
             </Button>
           )}
           <Button
-
             onClick={onSubmitFinanciera}
             variant="contained"
             color="primary"
