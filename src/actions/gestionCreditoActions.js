@@ -9,6 +9,7 @@ import {
   COMENZAR_EDICION_CREDITO,
   CREDITO_EDITADO_EXITO,
   CREDITO_EDITADO_ERROR,
+  AJUSTE_STORE,
 } from "../types";
 import ClienteAxios from "../config/axios";
 import Swal from "sweetalert2";
@@ -29,7 +30,7 @@ export function verCredito() {
           token: `${localStorage.getItem("token")}`,
         },
       });
-      console.log(respuesta);
+
       const { diasPrestamo, valorAprobado } = respuesta.data.credito;
       respuesta.data.credito.interes = intereses(diasPrestamo, valorAprobado);
       respuesta.data.credito.plataforma = cobroPlataforma(diasPrestamo);
@@ -65,6 +66,7 @@ const cargarCreditoError = (estado) => ({
 });
 
 export function nuevoCredito(credito) {
+  console.log(credito);
   return (dispatch) => {
     dispatch(solicitarCredito());
     try {
@@ -74,14 +76,12 @@ export function nuevoCredito(credito) {
           token: `${localStorage.getItem("token")}`,
         },
       });
-      console.log(credito);
       dispatch(agregarCreditoExito(credito));
       Swal.fire(
         "¿Permanece atento a tu aplicación!",
         "La solicitudo se ha enviado correctamente",
         "success"
       );
-      console.log(credito);
     } catch (error) {
       console.log(error);
 
@@ -109,9 +109,20 @@ const agregarCreditoError = (estado) => ({
 });
 
 // Edita un registro en la api y state
+export function editarCreditoFirma(credito) {
+  return async (dispatch) => {
+    console.log(credito);
+    //dispatch(editarCreditoFirmaExito(fechaFirma));
+  };
+}
+
+const editarCreditoFirmaExito = (credito) => ({
+  type: AJUSTE_STORE,
+  payload: credito,
+});
+
 export function editarCreditoAction(credito) {
   console.log(credito);
-
   return async (dispatch) => {
     dispatch(editarCredito());
     try {
@@ -121,8 +132,8 @@ export function editarCreditoAction(credito) {
           token: `${localStorage.getItem("token")}`,
         },
       });
-
-      dispatch(editarCreditoExito(credito));
+      const { fechaFirma } = credito;
+      dispatch(editarCreditoExito(fechaFirma));
     } catch (error) {
       console.log(error);
       console.log("entro al error");

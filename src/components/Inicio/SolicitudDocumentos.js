@@ -106,6 +106,7 @@ const SolicitudDocumentos = ({ credito, history }) => {
 
   const cancelarSolicitud = (e) => {
     let desertado = true;
+    let solicitudCredito = null;
     let id = credito.id;
     Swal.fire({
       title: "¿Estas seguro que deseas abandotar tu solicitud?",
@@ -198,17 +199,6 @@ const SolicitudDocumentos = ({ credito, history }) => {
                 onClick={cancelarSolicitud}
               >
                 Abandonar
-              </Button>
-
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                className={classes.button}
-                startIcon={<DeleteIcon />}
-                onClick={cancelarSolicitud}
-              >
-                Limpiar
               </Button>
             </div>
           </div>

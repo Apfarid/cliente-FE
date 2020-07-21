@@ -165,7 +165,6 @@ export function consultaInfoUsuario() {
         },
       });
       dispatch(consultaExitosa(data));
-      console.log(data);
     } catch (error) {
       dispatch(consultaError());
     }

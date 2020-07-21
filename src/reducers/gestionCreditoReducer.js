@@ -6,16 +6,19 @@ import {
   SOLICITAR_CREDITO_EXITO,
   SOLICITAR_CREDITO_ERROR,
   CREDITO_EDITADO_EXITO,
+  AJUSTE_STORE,
 } from "../types";
 import helper from "../Helper";
 
 const initialState = {
-  credito: {},
+  credito: {
+    fechaFirma: null,
+  },
   error: false,
   loading: false,
-  diasPrestamo: 0,
-  valorSolicitado: 0,
-  solicitudCredito: false,
+  //diasPrestamo: 0,
+  //valorSolicitado: 0,
+  //solicitudCredito: false,
 };
 
 export default function (state = initialState, action) {
@@ -47,9 +50,10 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        diasPrestamo: action.payload.diasPrestamo,
-        valorPrestamo: action.payload.valorPrestamo,
-        solicitudCredito: true,
+        credito: action.payload,
+        //diasPrestamo: action.payload.diasPrestamo,
+        //valorPrestamo: action.payload.valorPrestamo,
+        //solicitudCredito: true,
       };
     case SOLICITAR_CREDITO_ERROR:
       return {
@@ -58,10 +62,16 @@ export default function (state = initialState, action) {
         error: action.payload,
       };
 
-      case CREDITO_EDITADO_EXITO:
+    case CREDITO_EDITADO_EXITO:
       return {
         ...state,
-        credito: action.payload 
+        loading: false,
+        credito: action.payload,
+      };
+    case AJUSTE_STORE:
+      return {
+        ...state,
+        loading: false,
       };
 
     default:

@@ -9,10 +9,14 @@ import { format, addDays, lightFormat } from "date-fns";
 function Contador({ tamañoContador, credito }) {
   const { fechaDesembolsado, diasPrestamo } = credito;
 
-  let dia = addDays(new Date(fechaDesembolsado), diasPrestamo + 1);
+  let fechaLimite = new Date(fechaDesembolsado);
+  fechaLimite.setMinutes(
+    fechaLimite.getMinutes() + fechaLimite.getTimezoneOffset()
+  );
+  let dia = addDays(new Date(fechaLimite), diasPrestamo);
 
   const difference = +new Date(dia) - +new Date();
-
+  console.log(fechaLimite);
   const calculateTimeLeft = () => {
     let timeLeft = {};
 

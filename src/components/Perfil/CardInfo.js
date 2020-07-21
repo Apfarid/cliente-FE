@@ -10,21 +10,22 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    marginBottom:100,
-    marginTop:25,
-    marginLeft:45,
-    fontSize:15,
-    fontFamily:"raleway",
-    fontWeight:900,
-   
+    marginBottom: 100,
+    marginTop: 25,
+    marginLeft: 45,
+    fontSize: 15,
+    fontFamily: "raleway",
+    fontWeight: 900,
   },
 
   card: {
     width: "100% !important",
     backgroundColor: "#ffdf00",
-    
   },
 
+  editIcon: {
+    marginLeft: 10,
+  },
 }));
 
 export default function SimplePaper() {
@@ -48,30 +49,27 @@ export default function SimplePaper() {
 
   return (
     <div className={classes.root}>
-      <Grid item xs={12} >
-      <Card  elevation={3} className={classes.card}>
-        <CardContent>
-          <Typography variant="h5" component="h2" className={classes.title}>
-            Información
-            <EditIcon />
-          </Typography>
-          <Typography variant="p" component="p" className={classes.title}>
-            Nombre: {usuario.nombres} {usuario.apellidos}
-          </Typography>
-          <Typography variant="p" component="p" className={classes.title}>
-            Indentification: {usuario.cedula}
-          </Typography>
-          <Typography variant="p" component="p" className={classes.title}>
-            Celular: {usuario.celular}
-          </Typography>
-          <Typography variant="p" component="p" className={classes.title}>
-            Contraseña:
-          </Typography>
-          <Typography variant="p" component="p" className={classes.title}>
-            Teléfono:
-          </Typography>
-        </CardContent>
-      </Card>
+      <Grid item xs={12}>
+        <Card elevation={3} className={classes.card}>
+          <CardContent>
+            <Typography variant="h5" component="h2" className={classes.title}>
+              Información
+              <EditIcon className={classes.editIcon} />
+            </Typography>
+            <Typography variant="p" component="p" className={classes.title}>
+              Nombre: {usuario.nombres} {usuario.apellidos}
+            </Typography>
+            <Typography variant="p" component="p" className={classes.title}>
+              Indentificación: {usuario.cedula}
+            </Typography>
+            <Typography variant="p" component="p" className={classes.title}>
+              Celular: {usuario.celular}
+            </Typography>
+            <Typography variant="p" component="p" className={classes.title}>
+              Contraseña: *****
+            </Typography>
+          </CardContent>
+        </Card>
       </Grid>
     </div>
   );

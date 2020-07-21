@@ -122,31 +122,26 @@ const Calculadora = (props) => {
 
   const solicitar = (e) => {
     e.preventDefault();
-    let  solicitudCredito;
+    let solicitudCredito;
 
     let datos = {
       diasPrestamo,
       valorSolicitado,
-      plataforma,
-      administracion,
-      interesCredito,
-      impuestoIva,
-      solicitudCredito:true
+      solicitudCredito: true,
     };
 
-    solicitarCredito({ valorSolicitado, diasPrestamo, solicitudCredito });
+    solicitarCredito(datos);
     props.history.push("/inicio");
   };
 
   if (localStorage.getItem("censo") !== "si") {
     Swal.fire({
       icon: "error",
-      title: "Antes de solicitar tu credito, debes completar tu formulario de registro",
+      title:
+        "Antes de solicitar tu credito, debes completar tu formulario de registro",
     });
     props.history.push("/formulario-registro");
   }
-
-  
 
   return (
     <div className={classes.root}>

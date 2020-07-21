@@ -28,6 +28,8 @@ import ReplayIcon from "@material-ui/icons/Replay";
 import PaymentIcon from "@material-ui/icons/Payment";
 import HomeIcon from "@material-ui/icons/Home";
 import { consultaInfoUsuario } from "../../actions/usuarioAction";
+import { verCredito } from "../../actions/gestionCreditoActions";
+import { renovarCredito } from "../../Helper";
 
 import clienteAxios from "../../config/axios";
 
@@ -164,6 +166,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Sidebar = ({ children, history }) => {
   const usuarioDispatch = useDispatch();
+  const creditoDispatch = useDispatch();
   const [credito, setCredito] = useState([]);
   const [nombreUser, setNombreUser] = useState("");
 
@@ -185,8 +188,7 @@ const Sidebar = ({ children, history }) => {
   };
 
   const InfoUsuario = useSelector((state) => state.Usuario);
-
-  console.log(InfoUsuario);
+  const InfoCredito = useSelector((state) => state.gestionCreditos.credito);
 
   const cerrarSesion = () => {
     setAnchorEl(null);
@@ -208,47 +210,24 @@ const Sidebar = ({ children, history }) => {
     setCredito(respuesta.data.credito);
   };
 
-  const nombrePerfil = async () => {
-    const respuesta = await clienteAxios.get("/clientes", {
-      headers: {
-        "Content-Type": "application/json",
-        token: `${localStorage.getItem("token")}`,
-      },
-    });
-    setNombreUser(respuesta.data);
-  };
-
   useEffect(() => {
     const solicitarInfoUsuario = () => usuarioDispatch(consultaInfoUsuario());
+    const solicitarInfoCredito = () => creditoDispatch(verCredito());
     opcionesCliente();
-    nombrePerfil();
     solicitarInfoUsuario();
+    solicitarInfoCredito();
   }, []);
 
   let contrato = credito?.aprobado === true || credito?.desembolsado === true;
-  const desembolso = credito?.credito?.fechaSolicitado;
-
-  console.log(contrato);
-
   let liquidaciones = false;
+  let liquidarDesabled = false;
   if (credito?.desembolsado === null || credito?.desertado === true) {
     liquidaciones = true;
   }
-
-  let fecha_desembolso = desembolso
-    ? format(new Date(desembolso), "MM/dd/yyyy")
-    : null;
-  let diasPrestamo = credito?.diasPrestamo ? credito.diasPrestamo : 0;
-  let dia = addDays(new Date(fecha_desembolso), diasPrestamo);
-  let vencimiento = addDays(new Date(dia), diasPrestamo);
-
-  let renovacion = differenceInCalendarDays(
-    new Date(fecha_desembolso),
-    new Date()
-  );
-
-  let nombre = nombreUser?.nombres;
-
+  if (credito?.desembolsado === null) {
+    liquidarDesabled = true;
+  }
+  let renovacion = renovarCredito(InfoCredito);
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -358,7 +337,13 @@ const Sidebar = ({ children, history }) => {
             button
             component={Llink}
             to="/historico-credito"
-            disabled={localStorage.getItem("censo") !== "si" ? true : false}
+            disabled={
+              localStorage.getItem("censo") !== "si"
+                ? true
+                : false || InfoCredito?.solicitudCredito === true
+                ? true
+                : false
+            }
           >
             <ListItemIcon>
               <HistoryIcon />
@@ -369,7 +354,7 @@ const Sidebar = ({ children, history }) => {
             button
             component={Llink}
             to="/liquidar-credito"
-            disabled={!contrato}
+            disabled={liquidarDesabled}
           >
             <ListItemIcon>
               <PaymentIcon />
@@ -380,11 +365,7 @@ const Sidebar = ({ children, history }) => {
             button
             component={Llink}
             to="/renovacion-credito"
-            disabled={
-              renovacion < 0 ||
-              credito.credito.desembolsado === null ||
-              Object.keys(credito).length === 0
-            }
+            disabled={renovacion}
           >
             <ListItemIcon>
               <ReplayIcon />

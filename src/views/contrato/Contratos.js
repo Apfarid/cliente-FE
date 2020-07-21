@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { editarCreditoAction } from "../../actions/gestionCreditoActions";
+import { editarCreditoFirma } from "../../actions/gestionCreditoActions";
 import Contrato from "../../components/Contrato/Pagaredesplegable";
 import Button from "@material-ui/core/Button";
 import { format, addDays } from "date-fns";
@@ -110,6 +110,7 @@ const FirmaContrato = (props) => {
               },
             }
           );
+          editarCreditoFirma({ fechaFirma });
         } catch (error) {
           console.log(error);
         }
@@ -126,6 +127,7 @@ const FirmaContrato = (props) => {
               },
             }
           );
+          editarCreditoFirma({ fechaFirma });
         } catch (error) {
           console.log(error);
         }

@@ -14,6 +14,7 @@ import Preaprobado from "../../components/Inicio/Preaprobado";
 import SinDocumentos from "../../components/Inicio/SinDocumentos";
 import clienteAxios from "../../config/axios";
 import PorFirmar from "../../components/Inicio/PorFirmar";
+import { useDispatch, useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -51,23 +52,18 @@ const consultarCensados = async () => {
 
 export default function Home() {
   const classes = useStyles();
+  const InfoCredito = useSelector((state) => state.gestionCreditos.credito);
 
   const [credito, setCredito] = useState([]);
 
-  const homeCliente = async () => {
-    const respuestaHome = await clienteAxios.get("/credito", {
-      headers: {
-        "Content-Type": "application/json",
-        token: `${localStorage.getItem("token")}`,
-      },
-    });
-    setCredito(respuestaHome.data.credito);
+  const homeCliente = () => {
+    setCredito(InfoCredito);
   };
 
   useEffect(() => {
     consultarCensados();
     homeCliente();
-  }, []);
+  }, [InfoCredito]);
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaperDos = clsx(classes.paper, classes.fixedHeightDos);
@@ -84,6 +80,17 @@ export default function Home() {
     inicio = true;
   }
 
+  if (
+    credito?.solicitudCredito === true &&
+    credito?.aprobado === undefined &&
+    credito?.solicitarDocumentos === undefined &&
+    credito?.desembolsado === undefined &&
+    credito?.rechazado === undefined &&
+    credito?.preAprobado === undefined
+  ) {
+    estudio = true;
+    inicio = false;
+  }
   if (
     credito?.solicitudCredito === true &&
     credito?.aprobado === null &&
@@ -158,14 +165,14 @@ export default function Home() {
     inicio = false;
   }
 
-  console.log("=========================================");
+  /*   console.log("=========================================");
   console.log("estudio: " + estudio);
   console.log("documentos: " + documentos);
   console.log("contador: " + contador);
   console.log("preaprobado: " + preaprobado);
   console.log("inicio: " + inicio);
   console.log("sinDocumentos" + sinDocumentos);
-  console.log("estate : " + credito);
+  console.log("estate : " + credito); */
 
   return (
     <Container maxWidth="lg" className={classes.container}>
