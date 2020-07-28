@@ -106,6 +106,8 @@ const useStyles = makeStyles({
 });
 
 let fecha = new Date();
+fecha.setMinutes(fecha.getMinutes() + fecha.getTimezoneOffset());
+
 export default function LiquidarContrato() {
   const classes = useStyles();
 
@@ -137,7 +139,6 @@ export default function LiquidarContrato() {
     usuarioInfo();
   }, []);
 
-  console.log(data);
   let admon = data.valorAprobado ? data.valorAprobado : 0;
   let prestamo = data.valorAprobado ? data.valorAprobado : 0;
   let desembolso = moment(data.fechaDesembolsado);

@@ -119,6 +119,11 @@ const Calculadora = (props) => {
   const dispatch = useDispatch();
 
   const solicitarCredito = (credito) => dispatch(nuevoCredito(credito));
+  const InfoCredito = useSelector(
+    (state) => state.gestionCreditos.credito.solicitudCredito
+  );
+
+  console.log(InfoCredito);
 
   const solicitar = (e) => {
     e.preventDefault();
@@ -277,8 +282,11 @@ const Calculadora = (props) => {
                 size="large"
                 color="secondary"
                 className={classes.boton}
+                disabled={InfoCredito}
               >
-                ¡SOLICITA YA!
+                {InfoCredito
+                  ? "Tienes una solicitud en proceso"
+                  : `¡SOLICITA YA!`}
               </Button>
             </form>
           </CardContent>

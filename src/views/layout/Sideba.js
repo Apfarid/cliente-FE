@@ -42,6 +42,7 @@ import {
 } from "date-fns";
 
 let hoy = new Date();
+let disabledSolicitudCredito;
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -218,16 +219,31 @@ const Sidebar = ({ children, history }) => {
     solicitarInfoCredito();
   }, []);
 
+  function solicitudCredito(credito) {
+    disabledSolicitudCredito =
+      credito?.solicitudCredito === true ? true : false;
+    return disabledSolicitudCredito;
+  }
+
+  useEffect(() => {
+    solicitudCredito();
+  }, [InfoCredito]);
+
   let contrato = credito?.aprobado === true || credito?.desembolsado === true;
   let liquidaciones = false;
   let liquidarDesabled = false;
+
   if (credito?.desembolsado === null || credito?.desertado === true) {
     liquidaciones = true;
   }
-  if (credito?.desembolsado === null) {
+  if (credito?.fechaFirma === null) {
+    liquidarDesabled = true;
+  }
+  if (credito === null) {
     liquidarDesabled = true;
   }
   let renovacion = renovarCredito(InfoCredito);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -326,7 +342,7 @@ const Sidebar = ({ children, history }) => {
             button
             component={Llink}
             to="/solicitud-credito"
-            disabled={credito?.solicitudCredito === true ? true : false}
+            disabled={disabledSolicitudCredito}
           >
             <ListItemIcon>
               <AttachMoneyIcon />
