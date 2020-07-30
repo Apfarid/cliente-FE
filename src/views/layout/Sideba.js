@@ -242,6 +242,9 @@ const Sidebar = ({ children, history }) => {
   if (credito === null) {
     liquidarDesabled = true;
   }
+  if (credito?.desembolsado === null) {
+    liquidarDesabled = true;
+  }
   let renovacion = renovarCredito(InfoCredito);
 
   return (

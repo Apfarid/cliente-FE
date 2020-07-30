@@ -15,6 +15,7 @@ import SinDocumentos from "../../components/Inicio/SinDocumentos";
 import clienteAxios from "../../config/axios";
 import PorFirmar from "../../components/Inicio/PorFirmar";
 import { useDispatch, useSelector } from "react-redux";
+import ClienteAxios from "../../config/axios";
 
 const drawerWidth = 240;
 
@@ -56,13 +57,19 @@ export default function Home() {
 
   const [credito, setCredito] = useState([]);
 
-  const homeCliente = () => {
-    setCredito(InfoCredito);
+  const consultarEstado = async () => {
+    const respuesta = await ClienteAxios.get("/credito", {
+      headers: {
+        "Content-Type": "application/json",
+        token: `${localStorage.getItem("token")}`,
+      },
+    });
+    setCredito(respuesta.data.credito);
   };
 
   useEffect(() => {
     consultarCensados();
-    homeCliente();
+    consultarEstado();
   }, [InfoCredito]);
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
